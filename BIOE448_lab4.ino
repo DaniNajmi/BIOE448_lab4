@@ -7,6 +7,9 @@ const int echoPin = 12;
 long duration;
 int distanceCm, distanceInch;
 
+const int red = 2;
+const int green = 3;
+
 void setup() {
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
