@@ -7,12 +7,15 @@ const int echoPin = 12;
 long duration;
 int distanceCm, distanceInch;
 
-const int red = 2;
-const int green = 3;
+const int red = 2; // red LED
+const int green = 3; // green LED
+const int range = 5; // range for changing from green to red based on distance in cm
 
 void setup() {
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
+  pinMode(red, OUTPUT);
+  pinMode(green, OUTPUT);
   Serial.begin(9600);
 
 }
@@ -39,6 +42,16 @@ void loop() {
   Serial.println(" in");
   delay(1000); // delay so you can read the distance (slows refresh rate)
 
+  if (distanceCm < range) {
+    digitalWrite(green, HIGH);
+    digitalWrite(red, LOW);
+  }
+  else {
+    digitalWrite(green, LOW);
+    digitalWrite(red, HIGH);
+    }
+
+    delayMicroseconds(1000);
 
 }
 
