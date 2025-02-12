@@ -42,6 +42,8 @@ void loop() {
   Serial.println(" in");
   delay(1000); // delay so you can read the distance (slows refresh rate)
 
+
+  // this is for turning the red LED on if the distance is more than 5cm, otherwise, it will turn on the green LED
   if (distanceCm < range) {
     digitalWrite(green, HIGH);
     digitalWrite(red, LOW);
@@ -52,6 +54,5 @@ void loop() {
     }
 
     delayMicroseconds(1000);
-
 }
 
